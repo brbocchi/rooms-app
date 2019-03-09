@@ -1,0 +1,25 @@
+
+<a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+<a class="btn btn-primary btn-lg" href="/logout" role="button">Logout</a>
+<a class="btn btn-primary btn-lg mx-4" href="/auth/facebook" role="button">Login With FaceBoook</a>
+<a href="profile/add">Add user</a>
+<div class="info">
+    <h3>Rooms</h3>
+    <a href="/rooms/new">Create new place</a>
+    <ul>
+        {{#each rooms}}
+        <li>
+            <a href="/rooms/{{ this._id}}">{{ this.name}}</a>
+            <img src="{{this.imageUrl}}" alt="">
+            {{!-- <a href="/places/{{ this._id}}/delete">Delete</a> --}}
+        </li>
+        {{/each }}
+    </ul>
+    {{!-- add map here --}}
+    <div id="map"></div>
+</div>
+{{!-- added your scripts here --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZR-fEVqNQCToNiW3XUad73Fm-A7RYhZQ">
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/main.js"></script>

@@ -1,0 +1,60 @@
+<head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+
+<p></p>
+<h3 id="roomName" data-id="{{room.id}}">{{room.name}}</h3>
+<p>{{room.description}}</p>
+<p>{{room.type}}</p>
+<p></p>
+<img src="{{room.imageUrl}}" alt="">
+
+{{!-- <p>{{isOwner}}</p>
+<p>{{currentUser}}</p>
+<p>{{room.owner}}</p> --}}
+
+{{#if isOwner}}
+<a href="/rooms/{{room._id}}/edit">Edit this room</a>
+<form action="/rooms/{{room._id}}/delete" method="GET">
+  {{!-- <input type="hidden" name="id" value="{{_id}}"> --}}
+<button type="submit" class="edit-button-red">Delete</button></form>
+{{/if}}
+
+<div id="map"></div>
+
+{{#unless isOwner}}
+<p>Add a review</p>
+<form action="/reviews/add" method="post">
+  <input type="hidden" name="id" value="{{room._id}}">
+  <label for="">Comments:</label>
+  <textarea type="text" name="comment"></textarea>
+  <input type="number" name="rating" min="1" max="5">
+  <button type="submit">ADD</button>
+</form>
+{{/unless}}
+
+<h2>Reviews</h2>
+<strong></strong>
+{{#each room.reviews}}
+<div class="review-item">
+  <p>Name: {{this.user.fullName}}</p>
+  <p>Comment: {{this.comment}}</p>
+  <p>Rating: <span>{{this.rating}}</span></p>
+</div>
+{{/each}}
+
+
+<a href="/">Go back to the list</a>
+
+
+
+<script> var elem1 = $("span").text() 
+  var avgReview = (elem1.split('').map(s => parseFloat(s)).reduce((a,b) => a + b, 0)/elem1.length).toFixed(1)
+  if(!isNaN(avgReview)){
+   $('strong').text("Average review:" + avgReview)
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZR-fEVqNQCToNiW3XUad73Fm-A7RYhZQ">
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/show.js"></script>
