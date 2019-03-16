@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const router = express.Router();
 const User = require("../models/user");
@@ -67,7 +69,7 @@ router.post("/profile/add", (req, res, next) => {
             to: email,
             subject: 'email confirmation required',
             // text: message,
-            html: `please click <a href="http://localhost:3000/auth/confirm/${confirmationCode}">here</a>`
+            html: `please click <a href="${process.env.MAIL_URL}${confirmationCode}">here</a>`
           })
           .then(info => console.log('nodemailer sucess -->', info))
           .catch(error => console.log(error));
