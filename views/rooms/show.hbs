@@ -23,8 +23,9 @@
 <div id="map"></div>
 
 {{#unless isOwner}}
-<p>Add a review</p>
+<h2>Add a review</h2>
 <form action="/reviews/add" method="post">
+  
   <input type="hidden" name="id" value="{{room._id}}">
   <label for="">Comments:</label>
   <textarea type="text" name="comment"></textarea>

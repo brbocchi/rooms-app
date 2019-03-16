@@ -1,25 +1,29 @@
-
-<a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-<a class="btn btn-primary btn-lg" href="/logout" role="button">Logout</a>
-<a class="btn btn-primary btn-lg mx-4" href="/auth/facebook" role="button">Login With FaceBoook</a>
-<a href="profile/add">Add user</a>
 <div class="info">
-    <h3>Rooms</h3>
-    <a href="/rooms/new">Create new place</a>
-    <ul>
+    <h3>Choose the best rooms in town!</h3>
+
+    <div class="row text-center">
         {{#each rooms}}
-        <li>
+
+        {{!-- <img src="{{this.imageUrl}}" alt="" class="img-responsive img-rounded">
+    <a href="/rooms/{{ this._id}}">{{ this.name}}</a> --}}
+
+
+        <div class="col-sm-6 col-md-3">
+            <img src="{{this.imageUrl}}" class="img-responsive" />
             <a href="/rooms/{{ this._id}}">{{ this.name}}</a>
-            <img src="{{this.imageUrl}}" alt="">
-            {{!-- <a href="/places/{{ this._id}}/delete">Delete</a> --}}
-        </li>
+        </div>
+
+
+        {{!-- <a href="/places/{{ this._id}}/delete">Delete</a> --}}
+
         {{/each }}
-    </ul>
+    </div>
+
     {{!-- add map here --}}
     <div id="map"></div>
 </div>
 {{!-- added your scripts here --}}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZR-fEVqNQCToNiW3XUad73Fm-A7RYhZQ">
-  </script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/main.js"></script>
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/main.js"></script>

@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+  <script src="javascripts/jquery-3.3.1.min.js"></script>
+  <script src="javascripts/bootstrap.min.js"></script>
 </head>
-<body>
 
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <h1 class="sitetile">
+            Rooms App
+            </h1>
+        </div>
+        <div class="col-sm-3">
+          <nav>
+            <ul class="nav nav-pills">
+              <li><a href="/login">Users</a></li>
+              <li><a href="/rooms/new">Create new room</a></li>
+
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <hr>
   {{{body}}}
 
-  
+
 </body>
+
 </html>

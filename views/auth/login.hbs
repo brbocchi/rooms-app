@@ -1,9 +1,9 @@
 <form action="/login" method="POST" id="form">
   <h2>Login</h2>
-
-  <label for="email">Email</label>
-  <input type="text" name="email">
-
+  <div class="form-group row">
+  <label for="email" class="col-sm-1 col-form-label">Email</label>
+  <div class="col-sm-5"><input type="text" class="form-control" name="email"></div>
+  </div>
   <label for="password">Password</label>
   <input type="password" name="password">
 
@@ -11,9 +11,15 @@
     <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
 
-  <button>Sign in</button>
-
-  <p class="account-message">
+<button>Sign in</button>
+  {{!-- <p class="account-message">
     Don't have an account? Know more about us @ <a href="www.ironhack.com">Ironhack</a>!
-  </p>
+  </p> --}}
+
 </form>
+
+  
+  <a class="btn btn-primary btn-lg mx-4" href="/auth/facebook" role="button">Login With FaceBoook</a>
+  <a href="profile/add">Don't have an account?Sign Up!</a>
+
+<a class="btn btn-primary btn-lg" href="/logout" role="button">Logout</a>
