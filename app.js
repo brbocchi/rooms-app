@@ -18,7 +18,7 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const User = require("./models/user");
 
 mongoose
-  .connect('mongodb://localhost/rooms-app', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
   })
   .then(x => {
